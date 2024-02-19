@@ -3,6 +3,7 @@
 --Now, I am going to answer to some questions with SQL to conduct exploratory data analysis.
 ------------------------------------------------------------------------------------
 --Question 1: How many accidents have occurred in urban areas versus rural areas?
+
 SELECT
 	[Area],
 	COUNT([AccidentIndex]) AS 'Total Accident'
@@ -10,6 +11,7 @@ FROM
 	[dbo].[accident]
 GROUP BY 
 	[Area];
+
 
 --Question 2: Which day of the week has the highest number of accidents?
 SELECT 
@@ -21,6 +23,7 @@ GROUP BY
 	[Day]
 ORDER BY 
 	'Total Accident' DESC;
+
 
 --Question 3: What is the average age of vehicles involved in accidents based on their type?
 SELECT 
@@ -35,6 +38,7 @@ GROUP BY
 	[VehicleType]
 ORDER BY 
 	'Total Accident' DESC;
+
 
 --Question 4: Can we identify any trends in accidents based on the age of vehicles involved?
 SELECT 
@@ -55,6 +59,7 @@ FROM (
 GROUP BY 
 	AgeGroup;
 
+
 --Question 5: Are there any specific weather conditions that contribute to severe accidents?
 DECLARE @Sevierity varchar(100)
 SET @Sevierity = 'Fatal' --Serious, Fatal, Slight
@@ -70,6 +75,7 @@ GROUP BY
 	[WeatherConditions]
 ORDER BY 
 	'Total Accident' DESC;
+
 
 --Question 6: Do accidents often involve impacts on the left-hand side of vehicles?
 SELECT 
@@ -99,6 +105,7 @@ GROUP BY
 	V.[JourneyPurpose]
 ORDER BY 
 	'Total Accident' DESC;
+
 
 --Question 8: Calculate the average age of vehicles involved in accidents , considering Day light and point of impact:
 DECLARE @Impact varchar(100)
